@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ian He&#39;s Blog</title>
+  <title>New stuffs in ES6(2) | Ian He&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ian He">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ian He's Blog">
-<meta property="og:url" content="http://ianpeverell.github.io/index.html">
+  <meta name="description" content="##变量的解构赋值
+基本上属于“模式匹配”，即前后模式相同，即可给变量复制
+123456789101112131415//agovar a = 1;var b = 2;var c = 3;//nowvar [a,b,c]=[1,2,3];var [a,[[b],c]] = [1,[[2],3]];//a = 1;//b = 2;//c = 3;//用于指定默认值var [foo = true] =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="New stuffs in ES6(2)">
+<meta property="og:url" content="http://ianpeverell.github.io/2016/03/14/New-stuffs-in-ES6-2/index.html">
 <meta property="og:site_name" content="Ian He's Blog">
-<meta property="og:description" content="Ian He">
+<meta property="og:description" content="##变量的解构赋值
+基本上属于“模式匹配”，即前后模式相同，即可给变量复制
+123456789101112131415//agovar a = 1;var b = 2;var c = 3;//nowvar [a,b,c]=[1,2,3];var [a,[[b],c]] = [1,[[2],3]];//a = 1;//b = 2;//c = 3;//用于指定默认值var [foo = true] =">
+<meta property="og:updated_time" content="2016-03-14T15:02:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ian He's Blog">
-<meta name="twitter:description" content="Ian He">
+<meta name="twitter:title" content="New stuffs in ES6(2)">
+<meta name="twitter:description" content="##变量的解构赋值
+基本上属于“模式匹配”，即前后模式相同，即可给变量复制
+123456789101112131415//agovar a = 1;var b = 2;var c = 3;//nowvar [a,b,c]=[1,2,3];var [a,[[b],c]] = [1,[[2],3]];//a = 1;//b = 2;//c = 3;//用于指定默认值var [foo = true] =">
   
     <link rel="alternative" href="/atom.xml" title="Ian He&#39;s Blog" type="application/atom+xml">
   
@@ -26,13 +33,8 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
-      <style> .article { opacity: 0;} </style>
-  
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
   
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -42,8 +44,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -225,9 +227,7 @@
     </div>
 </nav>
       
-      <div class="body-wrap">
-  
-    <article id="post-New-stuffs-in-ES6-2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-New-stuffs-in-ES6-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/14/New-stuffs-in-ES6-2/" class="article-date">
@@ -243,12 +243,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/14/New-stuffs-in-ES6-2/">New stuffs in ES6(2)</a>
+    <h1 class="article-title" itemprop="name">
+      New stuffs in ES6(2)
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -263,218 +274,168 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-New-stuffs-in-ES6-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/14/New-stuffs-in-ES6-1/" class="article-date">
-      <time datetime="2016-03-14T12:31:17.000Z" itemprop="datePublished">2016-03-14</time>
-</a>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/03/14/New-stuffs-in-ES6-2/">New stuffs in ES6(2)</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Ian He 的个人博客">Ian He</a></p>
+        <p><span>发布时间:</span>2016年03月14日 - 20时58分</p>
+        <p><span>最后更新:</span>2016年03月14日 - 23时02分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/14/New-stuffs-in-ES6-2/" title="New stuffs in ES6(2)">http://ianpeverell.github.io/2016/03/14/New-stuffs-in-ES6-2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ianpeverell.github.io/2016/03/14/New-stuffs-in-ES6-2/　　作者: Ian He" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/14/New-stuffs-in-ES6-1/">New stuffs in ES6(1)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>##let and const</p>
-<p>let实际上为Javascript新添了块级作用域，可以省去了IIFE（匿名函数）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//IIFE</span><br><span class="line">（function() &#123;</span><br><span class="line">	var tmp: ...;</span><br><span class="line">	...</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">//块级作用域</span><br><span class="line">&#123;</span><br><span class="line">	let tmp: ...;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>const声明常量(同样具有块级作用域)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI=<span class="number">3.14</span></span><br><span class="line"><span class="comment">//PI=3.14</span></span><br><span class="line"></span><br><span class="line">PI=<span class="number">3</span>;</span><br><span class="line"><span class="comment">//PI=3.14</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript6/">ECMAScript6</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Binary-Tree-by-ES6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/14/Binary-Tree-by-ES6/" class="article-date">
-      <time datetime="2016-03-14T08:03:33.000Z" itemprop="datePublished">2016-03-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/14/Binary-Tree-by-ES6/">Binary Tree by ES6</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="用ES6构造二叉树"><a href="#用ES6构造二叉树" class="headerlink" title="用ES6构造二叉树"></a>用ES6构造二叉树</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Tree</span>(<span class="params">left, label, right</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.left = left;</span><br><span class="line">   <span class="keyword">this</span>.label = label;</span><br><span class="line">   thisl.right = right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">inorder</span>(<span class="params">t</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(t) &#123;</span><br><span class="line">   <span class="keyword">yield</span>* inorder(t.left);</span><br><span class="line">   <span class="keyword">yield</span> t.label;</span><br><span class="line">   <span class="keyword">yield</span>* inorder(t.right);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成二叉树</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">make</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">   <span class="comment">//判断是否为叶结点</span></span><br><span class="line">   <span class="keyword">if</span>(array.length == <span class="number">1</span> ) <span class="keyword">return</span> <span class="keyword">new</span> Tree(<span class="literal">null</span>, array[<span class="number">0</span>], <span class="literal">null</span>);</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> Tree(make(array[<span class="number">0</span>]), array[<span class="number">1</span>], make(array[<span class="number">2</span>]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> tree = make([[[<span class="string">'a'</span>],<span class="string">'b'</span>,[<span class="string">'c'</span>]],<span class="string">'d'</span>,[[<span class="string">'e'</span>],<span class="string">'f'</span>[<span class="string">'g'</span>]]]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历</span></span><br><span class="line"><span class="keyword">var</span> result = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> node <span class="keyword">of</span> inorder(tree)) &#123;</span><br><span class="line">   result.push(node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Binary-Tree/">Binary Tree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript6/">ECMAScript6</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Build-Blog-with-Hexo-on-Github-Pages" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/28/Build-Blog-with-Hexo-on-Github-Pages/" class="article-date">
-      <time datetime="2016-02-28T07:13:04.000Z" itemprop="datePublished">2016-02-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/14/New-stuffs-in-ES6-1/">
+                    New stuffs in ES6(1)
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/28/Build-Blog-with-Hexo-on-Github-Pages/">Build Blog with Hexo on Github Pages</a>
-    </h1>
-  
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="What-do-you-need"><a href="#What-do-you-need" class="headerlink" title="What do you need"></a>What do you need</h1><ul>
-<li>git</li>
-<li>IDE(你喜欢的就好)</li>
-<li>node.js</li>
-</ul>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>Attention</strong>:OS X 10.11之后需要手动安装xcrun</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br></pre></td></tr></table></figure>
-<h1 id="Hexo安装与项目创建"><a href="#Hexo安装与项目创建" class="headerlink" title="Hexo安装与项目创建"></a>Hexo安装与项目创建</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install --save</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>_config.yml文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   type: git</span><br><span class="line">   repo: &lt;repository url&gt;</span><br><span class="line">   branch: [branch]</span><br></pre></td></tr></table></figure>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>还需要安装以下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>其他方法请参见<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">hexo.io/docs/deployment</a></p>
-<p>配置结束后：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo genrate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github-Pages/">Github Pages</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
 
 
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
 
 
 
-  
-  
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/14/New-stuffs-in-ES6-2/" data-title="New stuffs in ES6(2)" data-url="http://ianpeverell.github.io/2016/03/14/New-stuffs-in-ES6-2/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ianpeverell"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/14/New-stuffs-in-ES6-1/" title="下一篇: New stuffs in ES6(1)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/New-stuffs-in-ES6-2/">New stuffs in ES6(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/New-stuffs-in-ES6-1/">New stuffs in ES6(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/Binary-Tree-by-ES6/">Binary Tree by ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/Build-Blog-with-Hexo-on-Github-Pages/">Build Blog with Hexo on Github Pages</a></li></ul>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
