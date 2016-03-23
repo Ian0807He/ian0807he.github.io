@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Can&#39;t set headers after they are sent | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2016/03/23/Can-t-set-headers-after-they-are-sent/">Can't set headers after they are sent</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">三月 23 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="Error的产生"><a href="#Error的产生" class="headerlink" title="Error的产生"></a>Error的产生</h2><p>node.js 的学习中，偶尔会遇到这这样的Error</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Can<span class="string">'t set headers after they are sent.</span></span><br></pre></td></tr></table></figure>
+<p>先看一下源码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  res.render(<span class="string">'index'</span>, &#123; title: <span class="string">'MicroBlog'</span> ,</span><br><span class="line">                        maker: author&#125;);</span><br><span class="line">  res.cookie(<span class="string">'name'</span>, <span class="string">'IanHe'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="产生的原因"><a href="#产生的原因" class="headerlink" title="产生的原因"></a>产生的原因</h2><p>这段代码的目的是想产生一个动态页面，并且在cookie里储存‘name’信息，但是会产生如题的Error。然后我进行了一个小小的实验，将cookie的发送调到了render的前面，于是就解决了。</p>
+<p>所以问题发生的原因是res.render上。根据res.render的工作方式，我们不难看出，这个动作会发送一个完整的渲染完成的html页面，所以我猜测，一个get里面，只允许有一次header请求，于是我又尝试多次渲染，或者重定向页面，均再次发生了这个现象，所以证明了我的猜测。</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
