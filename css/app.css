@@ -203,6 +203,32 @@ main.post {
   .page li {
     margin-left: 15px; }
 
+.sharing {
+  margin: 90px 0;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; }
+  .sharing .profile .avatar {
+    padding: 15px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; }
+  .sharing .profile .title {
+    margin: 0;
+    font-style: italic;
+    font-size: 1rem; }
+  .sharing .profile .subtitle {
+    margin: 0;
+    padding: 5px 0;
+    font-size: .8rem;
+    font-style: italic;
+    color: #999; }
+  .sharing .share-btns > p {
+    margin: 15px;
+    color: #EB298C;
+    font-style: italic;
+    text-transform: capitalize; }
+
 .code-block, .article-entry pre, .article-entry .highlight {
   background: #2d2d2d;
   margin: 0;
