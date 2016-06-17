@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hexo-theme-construction-(2) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2016/06/17/Hexo-theme-construction-2/">Hexo-theme-construction-(2)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">六月 17 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>在<a href="http://ianpeverell.github.io/2016/06/17/Hexo-theme-construction-1/">上一篇文章</a>中我们对hexo总体结构以及模版结构进行了学习，下面就对模版样式进行研究</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── css</span><br><span class="line">├── image</span><br><span class="line">└── js</span><br></pre></td></tr></table></figure>
+<p>就像大多数网站一样，hexo的静态文件也由这三部分构成</p>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>这里，可以通过在头部引用&lt;%- css(‘css/app’) %&gt;来引用所需要的CSS文件名称</p>
+<h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>可以用来存放图片，包括Blog中图标，轮放的图片等，都可以在_config.yml中设置</p>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p>放置模版中引用的js文件，引用方式和css类似&lt;%- js(‘js/app’) %&gt;</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
