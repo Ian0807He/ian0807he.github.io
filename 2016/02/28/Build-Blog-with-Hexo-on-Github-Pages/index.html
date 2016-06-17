@@ -45,14 +45,14 @@
 <li>node.js</li>
 </ul>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>Attention</strong>:OS X 10.11之后需要手动安装xcrun</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br></pre></td></tr></table></figure>
-<h1 id="Hexo安装与项目创建"><a href="#Hexo安装与项目创建" class="headerlink" title="Hexo安装与项目创建"></a>Hexo安装与项目创建</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install --save</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ xcode-select --install</span><br></pre></td></tr></table></figure>
+<h1 id="Hexo安装与项目创建"><a href="#Hexo安装与项目创建" class="headerlink" title="Hexo安装与项目创建"></a>Hexo安装与项目创建</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install --save</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>_config.yml文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   type: git</span><br><span class="line">   repo: &lt;repository url&gt;</span><br><span class="line">   branch: [branch]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   type: git</span><br><span class="line">   repo: &lt;repository url&gt;</span><br><span class="line">   branch: [branch]</span><br></pre></td></tr></table></figure>
 <h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>还需要安装以下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo -server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>其他方法请参见<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">hexo.io/docs/deployment</a></p>
-<p>配置结束后：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo genrate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>配置结束后：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo genrate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 
   </section>
 </article>
