@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Source Code Pro';
   font-style: normal;
@@ -202,6 +203,77 @@ main.post {
     color: #5badf0; }
   .page li {
     margin-left: 15px; }
+
+#animated_div {
+  width: 129px;
+  height: 149px;
+  color: #ffffff;
+  position: relative;
+  font-weight: bold;
+  font: bold 12px '微软雅黑', Verdana, Arial, Helvetica, sans-serif;
+  padding: 20px 10px 20px 10px;
+  animation: animated_div 3s linear infinite;
+  -moz-animation: animated_div 3s linear infinite;
+  -webkit-animation: animated_div 3s linear infinite;
+  -o-animation: animated_div 3s linear infinite;
+  border-radius: 5px;
+  -webkit-border-radius: 5px; }
+
+@keyframes animated_div {
+  0% {
+    transform: rotate(0deg);
+    left: 0px; }
+  25% {
+    transform: rotate(30deg);
+    left: 32px; }
+  75% {
+    transform: rotate(-30deg);
+    left: -32px; }
+  100% {
+    transform: rotate(0deg);
+    left: 0px; } }
+
+@-webkit-keyframes animated_div {
+  0% {
+    -webkit-transform: rotate(0deg);
+    left: 0px; }
+  25% {
+    -webkit-transform: rotate(30deg);
+    left: 32px; }
+  75% {
+    -webkit-transform: rotate(-30deg);
+    left: -32px; }
+  100% {
+    -webkit-transform: rotate(0deg);
+    left: 0px; } }
+
+@-moz-keyframes animated_div {
+  0% {
+    -moz-transform: rotate(0deg);
+    left: 0px; }
+  25% {
+    -moz-transform: rotate(30deg);
+    left: 32px; }
+  75% {
+    -moz-transform: rotate(-30deg);
+    left: -32px; }
+  100% {
+    -moz-transform: rotate(0deg);
+    left: 0px; } }
+
+@-o-keyframes animated_div {
+  0% {
+    transform: rotate(0deg);
+    left: 0px; }
+  25% {
+    transform: rotate(30deg);
+    left: 32px; }
+  75% {
+    transform: rotate(-30deg);
+    left: -32px; }
+  100% {
+    transform: rotate(0deg);
+    left: 0px; } }
 
 .code-block, .article-entry pre, .article-entry .highlight {
   background: #2d2d2d;
