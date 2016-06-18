@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'Source Code Pro';
   font-style: normal;
@@ -209,8 +208,6 @@ main.post {
   height: 149px;
   color: #ffffff;
   position: relative;
-  font-weight: bold;
-  font: bold 12px '微软雅黑', Verdana, Arial, Helvetica, sans-serif;
   padding: 20px 10px 20px 10px;
   animation: animated_div 3s linear infinite;
   -moz-animation: animated_div 3s linear infinite;
@@ -222,58 +219,58 @@ main.post {
 @keyframes animated_div {
   0% {
     transform: rotate(0deg);
-    left: 0px; }
+    left: 32px; }
   25% {
     transform: rotate(30deg);
-    left: 32px; }
+    left: 64px; }
   75% {
     transform: rotate(-30deg);
-    left: -32px; }
+    left: 0px; }
   100% {
     transform: rotate(0deg);
-    left: 0px; } }
+    left: 32px; } }
 
 @-webkit-keyframes animated_div {
   0% {
     -webkit-transform: rotate(0deg);
-    left: 0px; }
+    left: 32px; }
   25% {
     -webkit-transform: rotate(30deg);
-    left: 32px; }
+    left: 64px; }
   75% {
     -webkit-transform: rotate(-30deg);
-    left: -32px; }
+    left: 0px; }
   100% {
     -webkit-transform: rotate(0deg);
-    left: 0px; } }
+    left: 32px; } }
 
 @-moz-keyframes animated_div {
   0% {
     -moz-transform: rotate(0deg);
-    left: 0px; }
+    left: 32px; }
   25% {
     -moz-transform: rotate(30deg);
-    left: 32px; }
+    left: 64px; }
   75% {
     -moz-transform: rotate(-30deg);
-    left: -32px; }
+    left: 0px; }
   100% {
     -moz-transform: rotate(0deg);
-    left: 0px; } }
+    left: 32px; } }
 
 @-o-keyframes animated_div {
   0% {
     transform: rotate(0deg);
-    left: 0px; }
+    left: 32px; }
   25% {
     transform: rotate(30deg);
-    left: 32px; }
+    left: 64px; }
   75% {
     transform: rotate(-30deg);
-    left: -32px; }
+    left: 0px; }
   100% {
     transform: rotate(0deg);
-    left: 0px; } }
+    left: 32px; } }
 
 .code-block, .article-entry pre, .article-entry .highlight {
   background: #2d2d2d;
