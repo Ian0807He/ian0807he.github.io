@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>浅谈ES6（1） | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/tags">tags</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2016/06/20/浅谈ES6（1）/">浅谈ES6（1）</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">六月 20 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>作为我最喜欢的ES6的新特性，当然要将Generator排在第一位咯。</p>
+<h2 id="开场动画"><a href="#开场动画" class="headerlink" title="开场动画"></a>开场动画</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">loadUI</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  LoadingScreen();</span><br><span class="line">  <span class="keyword">yield</span> loadingContent();</span><br><span class="line">  HidingScreen();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> loader = loadUI();</span><br><span class="line"><span class="comment">//加载登陆动画</span></span><br><span class="line">loader.next();</span><br><span class="line"><span class="comment">//卸载登陆动画</span></span><br><span class="line">loader.next();</span><br></pre></td></tr></table></figure>
+<p>在这段程序中，在加载开场动画的同时，加载内容资源也会继续，内容加载完成后，开场动画就会结束，可以增加加载过程的连贯性，就不会出现加载缓慢的感觉。</p>
+<h2 id="内部遍历器"><a href="#内部遍历器" class="headerlink" title="内部遍历器"></a>内部遍历器</h2><p><a href="http://ianpeverell.github.io/2016/03/14/Binary-Tree-by-ES6/">二叉树</a></p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
