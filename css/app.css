@@ -203,6 +203,22 @@ main.post {
   .page li {
     margin-left: 15px; }
 
+.tags {
+  max-width: 42em;
+  margin: 2em auto;
+  margin-top: 0em; }
+
+.tags a {
+  margin-right: 1em;
+  line-height: 65px;
+  border-bottom: 1px solid gray;
+  white-space: nowrap;
+  transition: border-bottom .5s; }
+
+.tags a:hover {
+  border-bottom: 3px dotted gray;
+  text-decoration: none; }
+
 #animated_div {
   width: 109px;
   height: 149px;
