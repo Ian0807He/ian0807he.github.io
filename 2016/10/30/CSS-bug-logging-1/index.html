@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS bug logging(1) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/.">home</a>
+      
+    
+    
+        <a href="/archives">archive</a>
+      
+    
+    
+        <a href="/tags">tags</a>
+      
+    
+    
+        <a href="/about">about</a>
+      
+    
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2016/10/30/CSS-bug-logging-1/">CSS bug logging(1)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十月 30 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="div覆盖引发的问题"><a href="#div覆盖引发的问题" class="headerlink" title="div覆盖引发的问题"></a>div覆盖引发的问题</h2><p>问题描述：前一个div1被后一个div2覆盖住，导致前一个div的链接失效</p>
+<p>情景描述：由于前一个div1的position为absolute，所以后一个div2为了向下偏移，所以选择了padding的方式，将后一个div2下调。但此时padding会使得后一个div2覆盖住前一div1，使得鼠标虽然放在了连接的位置，但是是点击不是div1的内容而是div2的padding部分。</p>
+<p>解决方法：将前一个position改为relative，然后此时padding将会从div1的底部开始，就不会覆盖住div1.</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
