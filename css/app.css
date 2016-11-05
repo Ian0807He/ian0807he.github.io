@@ -32,14 +32,15 @@ a {
 .app-nav {
   position: absolute;
   top: 0;
-  right: 0;
-  margin: 15px; }
+  width: 100%;
+  padding: 15px; }
   .app-nav a {
-    color: #5badf0;
+    color: #1fbcd2;
     text-transform: capitalize;
-    padding: 6px 10px; }
+    padding: 6px 10px;
+    display: inline-block; }
   .app-nav .active {
-    background-color: #5badf0;
+    background-color: #1fbcd2;
     color: #fff; }
 
 .app-header {
@@ -89,36 +90,57 @@ a {
     padding: 0;
     list-style: none; }
   .app-header .social-list a {
-    color: #5badf0;
-    padding: 8px 12px; }
+    color: #1fbcd2;
+    padding: 8px 12px;
+    display: inline-block; }
 
 main.index {
   max-width: 700px;
   margin: 0 auto;
   padding: 15px; }
   main.index article {
-    margin-top: 45px; }
+    margin-top: 22.5px;
+    box-shadow: 0 0 2px 1px #bdbdbd;
+    border-radius: 2px; }
   main.index .article-entry {
-    padding: 15px 0 30px 0; }
+    padding: 15px; }
   main.index .article-title {
     margin: 0;
-    padding-top: 30px;
+    background-color: #1fbcd2;
     text-transform: capitalize;
-    font-size: 1.75rem; }
+    font-size: 1.75rem;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    color: #fff;
+    box-shadow: 0 0 2px 1px #bdbdbd;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px; }
+  main.index .article-title > a {
+    width: 100%;
+    height: 100%;
+    padding: 22.5px;
+    display: inline-block; }
+  main.index .article-title > a > button {
+    padding: 0; }
+  main.index .article-meta {
+    padding-left: 15px;
+    padding-bottom: 7.5px; }
   main.index .article-date {
     color: #aaa; }
   main.index .page-nav {
+    width: 100%;
     text-align: center;
-    margin-top: 45px;
-    font-size: 1.25rem; }
+    margin: 45px auto;
+    font-size: 1.25rem;
+    display: inline-block; }
     main.index .page-nav .page-number {
       padding: 5px;
-      color: #5badf0; }
+      color: #1fbcd2; }
     main.index .page-nav .current {
       color: inherit; }
     main.index .page-nav .extend {
       padding: 0 15px;
-      color: #5badf0; }
+      color: #1fbcd2; }
 
 main.archive {
   max-width: 500px;
@@ -129,7 +151,8 @@ main.archive {
   main.archive .article-title {
     margin: 0;
     font-size: 1.2rem;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    display: inline-block; }
   main.archive .article-meta {
     padding-left: 30px; }
     main.archive .article-meta .article-date {
@@ -140,12 +163,12 @@ main.archive {
     font-size: 1.25rem; }
     main.archive .page-nav .page-number {
       padding: 5px;
-      color: #5badf0; }
+      color: #1fbcd2; }
     main.archive .page-nav .current {
       color: inherit; }
     main.archive .page-nav .extend {
       padding: 0 15px;
-      color: #5badf0; }
+      color: #1fbcd2; }
 
 main.post {
   max-width: 700px;
@@ -157,7 +180,7 @@ main.post {
   main.post .article-entry {
     margin-top: 75px; }
     main.post .article-entry a {
-      color: #5badf0; }
+      color: #1fbcd2; }
   main.post .article-title {
     margin: 0;
     font-size: 1.75rem;
@@ -199,7 +222,7 @@ main.post {
   .page h2 {
     font-size: 1.75rem; }
   .page a {
-    color: #5badf0; }
+    color: #1fbcd2; }
   .page li {
     margin-left: 15px; }
 
@@ -507,7 +530,55 @@ pre .javascript .function {
   right: 0;
   margin: 15px;
   padding: 8px 12px;
-  background-color: #5badf0;
+  background-color: #1fbcd2;
   color: #fff;
   text-align: center;
   font-size: .9rem; }
+
+button {
+  position: relative;
+  display: block;
+  margin: 8px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  letter-spacing: .2em;
+  font-family: "Source Han Sans", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 2px;
+  text-align: center;
+  align-items: flex-start;
+  background-color: inherit; }
+
+.ripple {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 100%;
+  transform: scale(0);
+  pointer-events: none; }
+
+.ripple.show {
+  animation: ripple .75s ease-out; }
+
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0; } }
+
+.cover {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 100%;
+  transform: scale(0);
+  pointer-events: none; }
+
+.cover.show {
+  animation: cover .75s ease-out; }
+
+@keyframes cover {
+  to {
+    transform: scale(2);
+    opacity: 0; } }
