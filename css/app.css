@@ -38,7 +38,8 @@ a {
     color: #ffd54f;
     text-transform: capitalize;
     padding: 6px 10px;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
   .app-nav .active {
     background-color: #ffd54f; }
   .app-nav .active > button {
@@ -93,7 +94,8 @@ a {
   .app-header .social-list a {
     color: #ffd54f;
     padding: 8px 12px;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
 
 main.index {
   max-width: 700px;
