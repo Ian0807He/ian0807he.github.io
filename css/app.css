@@ -35,12 +35,13 @@ a {
   width: 100%;
   padding: 15px; }
   .app-nav a {
-    color: #1fbcd2;
+    color: #ffd54f;
     text-transform: capitalize;
     padding: 6px 10px;
     display: inline-block; }
   .app-nav .active {
-    background-color: #1fbcd2;
+    background-color: #ffd54f; }
+  .app-nav .active > button {
     color: #fff; }
 
 .app-header {
@@ -90,7 +91,7 @@ a {
     padding: 0;
     list-style: none; }
   .app-header .social-list a {
-    color: #1fbcd2;
+    color: #ffd54f;
     padding: 8px 12px;
     display: inline-block; }
 
@@ -103,10 +104,11 @@ main.index {
     box-shadow: 0 0 2px 1px #bdbdbd;
     border-radius: 2px; }
   main.index .article-entry {
-    padding: 15px; }
+    padding: 15px;
+    padding-left: 45px; }
   main.index .article-title {
     margin: 0;
-    background-color: #1fbcd2;
+    background-color: #ffd54f;
     text-transform: capitalize;
     font-size: 1.75rem;
     font-weight: normal;
@@ -123,7 +125,7 @@ main.index {
   main.index .article-title > a > button {
     padding: 0; }
   main.index .article-meta {
-    padding-left: 15px;
+    padding-left: 90px;
     padding-bottom: 7.5px; }
   main.index .article-date {
     color: #aaa; }
@@ -134,13 +136,24 @@ main.index {
     font-size: 1.25rem;
     display: inline-block; }
     main.index .page-nav .page-number {
-      padding: 5px;
-      color: #1fbcd2; }
+      width: 2em;
+      color: #ffd54f;
+      display: inline-block;
+      border: none;
+      outline: none;
+      letter-spacing: .2em;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 2px;
+      text-align: center;
+      align-items: flex-start;
+      background-color: inherit; }
     main.index .page-nav .current {
       color: inherit; }
     main.index .page-nav .extend {
       padding: 0 15px;
-      color: #1fbcd2; }
+      color: #ffd54f; }
 
 main.archive {
   max-width: 500px;
@@ -163,12 +176,12 @@ main.archive {
     font-size: 1.25rem; }
     main.archive .page-nav .page-number {
       padding: 5px;
-      color: #1fbcd2; }
+      color: #ffd54f; }
     main.archive .page-nav .current {
       color: inherit; }
     main.archive .page-nav .extend {
       padding: 0 15px;
-      color: #1fbcd2; }
+      color: #ffd54f; }
 
 main.post {
   max-width: 700px;
@@ -180,7 +193,7 @@ main.post {
   main.post .article-entry {
     margin-top: 75px; }
     main.post .article-entry a {
-      color: #1fbcd2; }
+      color: #ffd54f; }
   main.post .article-title {
     margin: 0;
     font-size: 1.75rem;
@@ -222,7 +235,7 @@ main.post {
   .page h2 {
     font-size: 1.75rem; }
   .page a {
-    color: #1fbcd2; }
+    color: #ffd54f; }
   .page li {
     margin-left: 15px; }
 
@@ -232,15 +245,29 @@ main.post {
   margin-top: 0em; }
 
 .tags a {
-  margin-right: 1em;
-  line-height: 65px;
-  border-bottom: 1px solid gray;
+  border: 10px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 7px;
+  outline: none;
+  font-size: inherit;
+  background-color: #ffd54f;
+  border-radius: 1em;
   white-space: nowrap;
-  transition: border-bottom .5s; }
+  width: -webkit-fit-content;
+  box-shadow: 0px 0px 3px 2px #bdbdbd;
+  overflow: hidden;
+  letter-spacing: 0.2em;
+  font-weight: bold; }
 
 .tags a:hover {
-  border-bottom: 3px dotted gray;
-  text-decoration: none; }
+  background-color: #fff; }
 
 #animated_div_left {
   width: 89px;
@@ -530,7 +557,7 @@ pre .javascript .function {
   right: 0;
   margin: 15px;
   padding: 8px 12px;
-  background-color: #1fbcd2;
+  background-color: #ffd54f;
   color: #fff;
   text-align: center;
   font-size: .9rem; }

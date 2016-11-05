@@ -40,7 +40,7 @@
   <section class="article-meta">
     <p class="article-date">五月 09 2016</p>
   </section>
-
+  
   <section class="article-entry">
     <h2 id="MD5基础"><a href="#MD5基础" class="headerlink" title="MD5基础"></a>MD5基础</h2><h3 id="MD5的意义"><a href="#MD5的意义" class="headerlink" title="MD5的意义"></a>MD5的意义</h3><p>Message Digest Algorithm MD5（中文名为消息摘要算法第五版）为计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。该算法的文件号为RFC 1321（R.Rivest,MIT Laboratory for Computer Science and RSA Data Security Inc. April 1992）。</p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import md5</span><br><span class="line">mes =  <span class="string">"hello"</span></span><br><span class="line">m = md5.new()</span><br><span class="line">m.update(mes)</span><br><span class="line">output=m.digest()</span><br><span class="line"><span class="built_in">print</span> mes</span><br><span class="line"><span class="built_in">print</span> output</span><br></pre></td></tr></table></figure>
