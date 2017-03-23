@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ian He&#39;s Blog</title>
+  <title>Bitcoin Develop Diary(1) | Ian He&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/avator.png">
   <link rel="stylesheet" href="/css/app.css">
@@ -31,34 +31,22 @@
 </nav>
 <script src="/js/button.js"></script>
 
-  <main class="archive">
-  
-    <article class="grid">
-  <h1 class="article-title grid-item">
+  <main class="post">
+  <article>
+  <h1 class="article-title">
     <a href="/2017/03/23/Bitcoin-Develop-Diary-1/">Bitcoin Develop Diary(1)</a>
   </h1>
 
-  <div class="article-meta">
-    <span class="article-date">3月 23 2017</span>
-  </div>
-</article>
-
+  <section class="article-meta">
+    <p class="article-date">三月 23 2017</p>
+  </section>
   
-    <article class="grid">
-  <h1 class="article-title grid-item">
-    <a href="/2017/02/17/Coding/">Coding</a>
-  </h1>
+  <section class="article-entry">
+    <h2 id="Coinbase"><a href="#Coinbase" class="headerlink" title="Coinbase"></a>Coinbase</h2><p>作为一个Bitcoin从开发的最初版本就存在的东西，coinbase是一个交易信息载体的绝佳选项，你可以有限的空间里记录下交易的一些细节信息，比如支持Unlimited，Segwit，8MB中的那一个</p>
+<p>查找方法也很简单，只需要查找一个 <code>tx</code> 中 <code>pos</code>等于 0 的 <code>scriptSig</code> 就可以了，然后将16进制转化为ascii就可以看到里面的内容了</p>
 
-  <div class="article-meta">
-    <span class="article-date">2月 17 2017</span>
-  </div>
+  </section>
 </article>
-
-  
-
-  <nav class="page-nav">
-  <span class="page-number current">1</span>
-</nav>
 
 </main>
 
