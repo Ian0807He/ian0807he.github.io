@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Learning Bitcoin: Transcation | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2017/03/28/Learning-Bitcoin-Transcation-1/">Learning Bitcoin: Transcation</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">三月 28 2017</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="Bitcoin-Trascation-1"><a href="#Bitcoin-Trascation-1" class="headerlink" title="Bitcoin Trascation (1)"></a>Bitcoin Trascation (1)</h2><h3 id="Input-Addres-And-Output-Address"><a href="#Input-Addres-And-Output-Address" class="headerlink" title="Input Addres And Output Address"></a>Input Addres And Output Address</h3><p>在比特币的思想中，我们知道，所有的交易都是可查的，那么Bitcoin是通过什么方式来是过去的交易变的可查询的呢？答案很简单，用一个类似双向链表的方式来存储交易信息。</p>
+<p>首先要明确一个概念，就是这一笔交易的输入是上一笔交易的输出（在非coinbase交易中）。第一笔交易，也就是coinbase交易是不存在输入的，因为是挖矿，那么挖出来的奖励就存在了矿工的钱包里，那么想花钱，那么这些钱就来自上一笔交易的输入（挖矿奖励），那么下一个交易的输入就来自这笔交易的输出也就不难理解了。</p>
+<p>那么继续，如果说，<code>txout</code>中的<code>txout_id</code>是用来标示这一笔交易的输出，<code>txout_scriptPubKey</code>表示的是该输出的输出地址，那么<code>txin</code>中的<code>txout_id</code>就是用来标示上一笔交易的输出。那么如果想查找上一笔交易的信息，就可以通过这个<code>txout_id</code>来查找了，该输入的输入地址就是上一次输出的地址<code>txout_scriptPubKey</code>了。</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
