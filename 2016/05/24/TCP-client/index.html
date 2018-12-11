@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   <title>TCP client | Ian He&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -42,7 +42,7 @@
   </section>
   
   <section class="article-entry">
-    <h2 id="Chat-client"><a href="#Chat-client" class="headerlink" title="Chat client"></a>Chat client</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>请配合 <a href="http://ianpeverell.github.io/2016/05/17/TCP-with-Node-js/" target="_blank" rel="external">服务器端共同使用</a> 。</p>
+    <h2 id="Chat-client"><a href="#Chat-client" class="headerlink" title="Chat client"></a>Chat client</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>请配合 <a href="http://ianpeverell.github.io/2016/05/17/TCP-with-Node-js/" target="_blank" rel="noopener">服务器端共同使用</a> 。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var net = require(&apos;net&apos;);</span><br><span class="line">var port = 4001;            //server port</span><br><span class="line">var quitting = false;</span><br><span class="line">var conn;</span><br><span class="line">var retryTimeout = 3000;    //超时时长</span><br><span class="line"></span><br><span class="line">var retriedTimes = 0;</span><br><span class="line">var maxRetries = 10;        //最大重连次数</span><br><span class="line"></span><br><span class="line">process.stdin.resume();</span><br><span class="line"></span><br><span class="line">process.stdin.on(&apos;data&apos;, function(data) &#123;</span><br><span class="line">  //输入 quit 退出</span><br><span class="line">  if(data.toString().trim().toLowerCase() === &apos;quit&apos;) &#123;</span><br><span class="line">    quitting = true;</span><br><span class="line">    console.log(&apos;quitting ....&apos;);</span><br><span class="line">    conn.end();</span><br><span class="line">    process.stdin.pause();</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    conn.write(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">(function connect() &#123;</span><br><span class="line">  //重连功能</span><br><span class="line">  function reconnect() &#123;</span><br><span class="line">    if(retiredTImes &gt;= maxRetries) &#123;</span><br><span class="line">      throw new Error(&apos;Connection overtime&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    retriedTimes += 1;</span><br><span class="line">    setTimeout(connect, retryTimeout);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  conn = net.createConnection(port);</span><br><span class="line"></span><br><span class="line">  conn.on(&apos;connect&apos;, function() &#123;</span><br><span class="line">    retriedTimes = 0;</span><br><span class="line">    console.log(&apos;connected to server&apos;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  conn.on(&apos;error&apos;,function() &#123;</span><br><span class="line">    console.log(&apos;Error in connection):&apos;, err);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  conn.on(&apos;close&apos;, function() &#123;</span><br><span class="line">    if(!quitting) &#123;</span><br><span class="line">      console.log(&apos;connection closed, trying to reconnect&apos;);</span><br><span class="line">      reconnect();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  conn.pipe(process.stdout, &#123;end: false&#125;);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
 <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>自动重连，最大重连次数为10次</p>
 

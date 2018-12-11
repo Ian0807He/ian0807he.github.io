@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Work in Trustnote(1) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/12/11/Work-in-Trustnote-1/">Work in Trustnote(1)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十二月 11 2018</p>
+  </section>
+  
+  <section class="article-entry">
+    <p>In the end of 2018, I decide to write something about this nine months’ work. I still believe that blockchain will change the world, because its purpose is to find consensus in untrust. And so many algorithms are created such as BFT and PBFT.</p>
+<p>But like Internet, blockchain is a tool. We still don’t know what it is, we don’t know what it will be, we don’t know what it should be. We just do everything we can imagine which sounds too romantic. Maybe it is an old fashion, I still believe in it.</p>
+<h2 id="BlockChain-or-DAG"><a href="#BlockChain-or-DAG" class="headerlink" title="BlockChain or DAG ?"></a>BlockChain or DAG ?</h2><p>When I first know about blockchain, it was in 8btc when I was still an trainee. And Bitcoin is the god of all the blockchains.</p>
+<p>A year later, I came to beijing and joined the Trustnote. In it, I learned that DAG is designed to be next generation of blockchain.</p>
+<h2 id="BFT-and-POW"><a href="#BFT-and-POW" class="headerlink" title="BFT and POW"></a>BFT and POW</h2><p>In Bitcoin, The longest chain will be chosen as the mainchain. And we use pow to make sure that it will cost a lot to change the mainchain. So there is a thing called 51% computing power attack.</p>
+<p>In Byteball, it uses witness to choose mainchain. If more than half of witnesses are down, attacked or even attacked, the whole chain will down. And due to many reasons, the amount of witnesses is only 13.</p>
+<p>So we, Trustnote, decided to use another method to ensure the robust of mainchain. So we decided to combine POW and BFT. The witnesses will be elected by mining, and the first eight(which is consensused by all nodes) will be choosen. They will use BFT to choose how many units and which units is packed into the witness unit. This algorithm is called TrustMe.</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
