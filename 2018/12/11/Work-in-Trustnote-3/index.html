@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Work in Trustnote(3) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/12/11/Work-in-Trustnote-3/">Work in Trustnote(3)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十二月 11 2018</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="Catchup"><a href="#Catchup" class="headerlink" title="Catchup"></a>Catchup</h2><p>In Bitcoin, there is two kind of catchup:</p>
+<ul>
+<li>Small catchup</li>
+<li>Large catchup</li>
+</ul>
+<h4 id="Small-catchup"><a href="#Small-catchup" class="headerlink" title="Small catchup"></a>Small catchup</h4><ul>
+<li>Downloader sends getblocks(locator(dChainHead), 0)</li>
+<li>Responder sends invs for blocks from dChainHead to rChainHead</li>
+<li>Downloader sends getdata for each inv</li>
+<li>Responder sends blocks for each getdata</li>
+</ul>
+<h4 id="Large-catchup"><a href="#Large-catchup" class="headerlink" title="Large catchup"></a>Large catchup</h4><ul>
+<li>Downloader sends getblocks(locator(dChainHead), 0)</li>
+<li>Responder sends invs for blocks from dChainHead to dChainHead + 500</li>
+<li>(getdata / blocks sent by responder / blocks added to chain by downloader)</li>
+<li>The last getdata triggers an inv(rChainHead)</li>
+<li>Downloader sends getdata(rChainHead)</li>
+<li>Responder sends block</li>
+<li>Downloader puts block on orphan list</li>
+<li>Downloader sends getblocks(locator(dChainHead), rChainHead)</li>
+<li>goto step 2</li>
+</ul>
+<p>The first thing bitcoin get is a chain that build by headers. And the most interesting thing about it is that we don’t need to care about the transations inside the block. We only need to verify that this block is valid. But why?</p>
+<p>The header of bitcoin is :</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Updated when…</th>
+<th>Size (Bytes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version</td>
+<td>Block version number</td>
+<td>You upgrade the software and it specifies a new version</td>
+<td>4</td>
+</tr>
+<tr>
+<td>hashPrevBlock</td>
+<td>256-bit hash of the previous block header</td>
+<td>A new block comes in</td>
+<td>32</td>
+</tr>
+<tr>
+<td>hashMerkleRoot</td>
+<td>256-bit hash based on all of the transactions in the block</td>
+<td>A transaction is accepted</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>Current timestamp as seconds since 1970-01-01T00:00 UTC</td>
+<td>Every few seconds</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Bits</td>
+<td>Current target in compact format</td>
+<td>The difficulty is adjusted</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Nonce</td>
+<td>32-bit number (starts at 0)</td>
+<td>A hash is tried (increments)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>So the header has everything we need to verify the block. And the we don’t need to worry about double check or bad transation, which will be verified by following blocks. And this is where magic is. A light client can also store a bitcoin’s chain in this way, and it only need to get its transations but still can verify them because of the merkle root. And a full client can get those details from different responser by different sequence and skip the validation of UTXO.</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>

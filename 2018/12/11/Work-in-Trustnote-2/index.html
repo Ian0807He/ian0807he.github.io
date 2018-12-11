@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Work in Trustnote(2) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/12/11/Work-in-Trustnote-2/">Work in Trustnote(2)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十二月 11 2018</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="BFT-in-Trustnote"><a href="#BFT-in-Trustnote" class="headerlink" title="BFT in Trustnote"></a>BFT in Trustnote</h2><p><a href="https://ianhhhhhhhhe.github.io/2018/12/11/Work-in-Trustnote-1/">In last blog</a>, I wrote a little about that we use pow and BFT to choose mainchain. So in this blog, I will tell you how this works.</p>
+<h2 id="Round-cycle"><a href="#Round-cycle" class="headerlink" title="Round, cycle"></a>Round, cycle</h2><p>In Trustnote, no witness will be forever. So we have a switch mechanism. There is a thing called round. When a round begins, every miner begins to mining to win the qualification of being witness. And those who get answers earlier in last round will begin to work as witness in current round.</p>
+<p>And to adjust difficulty, we decide that 10 rounds is a cycle. And eventually, the miner will get 5 billion mn for rewards.</p>
+<h2 id="BFT"><a href="#BFT" class="headerlink" title="BFT"></a>BFT</h2><p>Our BFT algorithm is called <a href="https://tendermint.com/" target="_blank" rel="noopener">Tendermint</a>. Witnesses use it to decide what witness unit to compose and when to compose it. So we don’t need to worry about 51% computing power attack.</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
