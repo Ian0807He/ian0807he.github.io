@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Work in Trustnote(4) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/12/12/Work-in-Trustnote-4/">Work in Trustnote(4)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十二月 12 2018</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="SPV"><a href="#SPV" class="headerlink" title="SPV"></a>SPV</h2><p>Simple Payment Verification in Bitcoin is a very impressive algorithm, because any device can keep a full blockchain with a little size of the database.</p>
+<p>So, how does Bitcoin do that thing?</p>
+<h4 id="Header-Is-Everything"><a href="#Header-Is-Everything" class="headerlink" title="Header Is Everything"></a>Header Is Everything</h4><p>In Bitcoin, the most important thing is header. <a href="https://ianhhhhhhhhe.github.io/2018/12/11/Work-in-Trustnote-3/">In last blog</a>, we learned that you can verify a block only use its header and you also can get a full chain with headers.</p>
+<h4 id="Merkle-Tree-Is-The-Key"><a href="#Merkle-Tree-Is-The-Key" class="headerlink" title="Merkle Tree Is The Key"></a>Merkle Tree Is The Key</h4><p>Bitcoin use Merkle Tree to calculate the hash of transations inside the block and put it into the header to do the math. So if you verified the header, you also verified the transations. Therefore, you don’t need to worried about any double spend or something because all these will be verified by next blocks. </p>
+<p>Now, you get a full verified chain and merkle trees in the block. The next thing you need is your transations and index of your transation. The benefit of merkle tree is you won’t need the whole data to verify one data. You just need to know yours any where it should be.</p>
+<h2 id="Benefit-of-SPV"><a href="#Benefit-of-SPV" class="headerlink" title="Benefit of SPV"></a>Benefit of SPV</h2><ol>
+<li>You have a full chain, so you don’t need to relay on any full node to complete verify.</li>
+<li>You don’t need all information. You can just get the information you need to verify transations, which save a lot of space.</li>
+<li>You can ask for information from any node you want and you don’t need to worry about being lied.</li>
+</ol>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
