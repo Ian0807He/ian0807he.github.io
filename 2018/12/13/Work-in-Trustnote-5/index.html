@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Work in Trustnote(5) | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/12/13/Work-in-Trustnote-5/">Work in Trustnote(5)</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十二月 13 2018</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="DAG-Is-Future"><a href="#DAG-Is-Future" class="headerlink" title="DAG Is Future"></a>DAG Is Future</h2><p>The biggest advantage of DAG is tps. You can compose a joint whenever you want. The only thing you need to do next is waiting someone to compose another joint which chose your joint as a parent joint. So the tps of the DAG can be infinity. The only limit is the band width of network and the performance of computer.</p>
+<p>So it’s not very easy to control the whole chain by using 51% computing power attack. You cannot create a double spend and only admit the bad one by permanent divergence. Once a unit is included by other unit, it will stay in the graph.</p>
+<h2 id="DAG-Is-Good-But-Not-Perfect"><a href="#DAG-Is-Good-But-Not-Perfect" class="headerlink" title="DAG Is Good But Not Perfect"></a>DAG Is Good But Not Perfect</h2><p>There is still things that DAG cannot process perfectly. In blockchain like Bitcoin, you don’t need to worried too much about the transations inside the block which will be verified by the next blocks. Which means you don’t need to verified a whole UTXO. But in DAG like byteball, you need the full details about the history or you can’t verify anything. Which also means you can’t process units with async in most situation. Which is a very bad for catchup.</p>
+<p>And because there is latency between nodes, double spend unit can will stay in the graph. So, when a new node wants to verify a transaction, the node need the full history of the UTXO to verify the double spend. Therefore, SPV in pure DAG is impossible, I think.</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
