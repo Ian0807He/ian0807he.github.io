@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Node.js v12.0.0 -- Worker_threads | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2019/05/03/Node-js-v12-0-0-Worker-threads/">Node.js v12.0.0 -- Worker_threads</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">五月 03 2019</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="Worker-threads"><a href="#Worker-threads" class="headerlink" title="Worker_threads"></a>Worker_threads</h2><p>Last Week, Node.js has just released v12.0.0, includes several new features. One of them interest me, it was added in v10, when it was added as experimental. And now, it seems to be going well and become a formal module.</p>
+<p>It is similar to <figure class="highlight plain"><figcaption><span>which means it can run Node.js in multi-threads. First I saw a paper on Medium about it, which is a tutorial. And then I read from [offical site](https://nodejs.org/api/worker_threads.html) to get more information. So I wrote [this example](https://github.com/ianhhhhhhhhe/Worker-Threads-Example) include three ways to calculate the primes.</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### Some Basic Function We need</span><br><span class="line"></span><br><span class="line">First we need to create a pool with threads which are called Workers:</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>const threadCount = +process.argv[2] || 2;<br>const threads = new Set();;<br>console.log(<code>Running with ${threadCount} threads...</code>);<br>const range = Math.ceil((max - min) / threadCount);<br>let start = min;<br>for (let i = 0; i &lt; threadCount - 1; i++) {<br>  const myStart = start;<br>  threads.add(new Worker(__filename, { workerData: { start: myStart, range } }));<br>  start += range;<br>}<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### Main Thread</span><br><span class="line"></span><br><span class="line">To decide if the formal thread is the main_thread, we import ```isMainThread```.</span><br><span class="line"></span><br><span class="line">To pass the parameters to the worker, we add a object called workerData, and the worker will get them by importing workData from worker_threads.</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>generatePrimes(workerData.start, workerData.range);<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Or we can use ```postMessage``` to pass message to specific worker.</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>worker.postMessage({ msg: ‘Hello world’ });<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">To pass or recieve a worker&apos;s signal, we use the same way in ```EventEmitter</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; worker.on(&apos;error&apos;, (err) =&gt; &#123; throw err; &#125;);</span><br><span class="line">&gt; worker.on(&apos;exit&apos;, () =&gt; &#123;</span><br><span class="line">&gt;   threads.delete(worker);</span><br><span class="line">&gt;   console.log(`Thread exiting, $&#123;threads.size&#125; running...`);</span><br><span class="line">&gt;   if (threads.size === 0) &#123;</span><br><span class="line">&gt;     console.log(primes.length);</span><br><span class="line">&gt;     // console.log(primes.join(&apos;\n&apos;));</span><br><span class="line">&gt;     console.timeEnd(&apos;Threads&apos;);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;)</span><br><span class="line">&gt; worker.on(&apos;message&apos;, (msg) =&gt; &#123;</span><br><span class="line">&gt;   if (msg.primes) &#123;</span><br><span class="line">&gt;     console.log(&apos;Recieve primes from thread &apos;, msg.threadId);</span><br><span class="line">&gt;     primes = primes.concat(msg.primes);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   if (msg.msg) &#123;</span><br><span class="line">&gt;     console.log(&apos;Main thread recieved message from thread: &apos;, msg.msg);</span><br><span class="line">&gt;     worker.postMessage(&#123; msg: &apos;Hello world&apos; &#125;);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt; &#125;);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="error"><a href="#error" class="headerlink" title="error"></a>error</h5><p>When worker exit by throwing an error, it will send an error signal to main_thread and error message with it.</p>
+<h5 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h5><p>When worker exit normally, it will send an exit signal to main thread.</p>
+<h5 id="message"><a href="#message" class="headerlink" title="message"></a>message</h5><p>When worker send a message to main thread, this is the event that listen the message.</p>
+<h5 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h5><p>This function is the way that main thread send message to worker after the worker is created.</p>
+<h4 id="Workers"><a href="#Workers" class="headerlink" title="Workers"></a>Workers</h4><p>To pass or recieve the main_thread’s signal, we have parentPort</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; parentPort.postMessage(&#123; &apos;primes&apos;: primes, &apos;threadId&apos;: threadId &#125;);</span><br><span class="line">&gt; parentPort.on(&apos;message&apos;, (msg) =&gt; &#123;</span><br><span class="line">&gt;   if (msg.msg) &#123;</span><br><span class="line">&gt;     return console.log(`Thread $&#123;threadId&#125; recieved message from thread $&#123;msg.msg&#125;`);</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   console.log(&apos;Recieve unknown message: &apos;, JSON.stringify(msg));</span><br><span class="line">&gt; &#125;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>To identify the worker, we can import <code>threadId</code> to find which worker it is.</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
