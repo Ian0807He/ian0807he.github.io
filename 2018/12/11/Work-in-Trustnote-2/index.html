@@ -1,56 +1,274 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  <title>Work in Trustnote(2) | Ian He&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/avator.png">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Ian(忆南) He(何)">
+
+
+    <meta name="subtitle" content="静静地旁观，默默地思考，然后开心的笑笑，就好了">
+
+
+    <meta name="description" content="Ian He">
+
+
+
+<title>Work in Trustnote(2) | Ian He&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 </head>
-</html>
 <body>
-  <nav class="app-nav">
-  
-    
-        <a href="/."><button>home</button></a>
-      
-    
-    
-        <a href="/archives"><button>archive</button></a>
-      
-    
-    
-        <a href="/tags"><button>tags</button></a>
-      
-    
-    
-        <a href="/about"><button>about</button></a>
-      
-    
-</nav>
-<script src="/js/button.js"></script>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">IanHe&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/12/11/Work-in-Trustnote-2/">Work in Trustnote(2)</a>
-  </h1>
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">IanHe&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
 
-  <section class="article-meta">
-    <p class="article-date">十二月 11 2018</p>
-  </section>
-  
-  <section class="article-entry">
-    <h2 id="BFT-in-Trustnote"><a href="#BFT-in-Trustnote" class="headerlink" title="BFT in Trustnote"></a>BFT in Trustnote</h2><p><a href="https://ianhhhhhhhhe.github.io/2018/12/11/Work-in-Trustnote-1/">In last blog</a>, I wrote a little about that we use pow and BFT to choose mainchain. So in this blog, I will tell you how this works.</p>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Work in Trustnote(2)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Ian(忆南) He(何)</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十二月 11, 2018&nbsp;&nbsp;11:20:27</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="BFT-in-Trustnote"><a href="#BFT-in-Trustnote" class="headerlink" title="BFT in Trustnote"></a>BFT in Trustnote</h2><p><a href="https://ianhhhhhhhhe.github.io/2018/12/11/Work-in-Trustnote-1/">In last blog</a>, I wrote a little about that we use pow and BFT to choose mainchain. So in this blog, I will tell you how this works.</p>
 <h2 id="Round-cycle"><a href="#Round-cycle" class="headerlink" title="Round, cycle"></a>Round, cycle</h2><p>In Trustnote, no witness will be forever. So we have a switch mechanism. There is a thing called round. When a round begins, every miner begins to mining to win the qualification of being witness. And those who get answers earlier in last round will begin to work as witness in current round.</p>
 <p>And to adjust difficulty, we decide that 10 rounds is a cycle. And eventually, the miner will get 5 billion mn for rewards.</p>
 <h2 id="BFT"><a href="#BFT" class="headerlink" title="BFT"></a>BFT</h2><p>Our BFT algorithm is called <a href="https://tendermint.com/" target="_blank" rel="noopener">Tendermint</a>. Witnesses use it to decide what witness unit to compose and when to compose it. So we don’t need to worry about 51% computing power attack.</p>
 
-  </section>
-</article>
+        </div>
 
-</main>
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Ian(忆南) He(何)</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://ianhhhhhhhhe.github.io/2018/12/11/Work-in-Trustnote-2/">http://ianhhhhhhhhe.github.io/2018/12/11/Work-in-Trustnote-2/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
 
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blockchain/"># Blockchain</a>
+                    
+                        <a href="/tags/Trustnote/"># Trustnote</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2018/12/11/Work-in-Trustnote-3/">Work in Trustnote(3)</a>
+            
+            
+            <a class="next" rel="next" href="/2018/12/11/Work-in-Trustnote-1/">Work in Trustnote(1)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Ian(忆南) He(何) | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
 </body>
 </html>
