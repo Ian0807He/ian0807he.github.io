@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>GCN Learning Note | Ian He&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/avator.png">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+</html>
+<body>
+  <nav class="app-nav">
+  
+    
+        <a href="/."><button>home</button></a>
+      
+    
+    
+        <a href="/archives"><button>archive</button></a>
+      
+    
+    
+        <a href="/tags"><button>tags</button></a>
+      
+    
+    
+        <a href="/about"><button>about</button></a>
+      
+    
+</nav>
+<script src="/js/button.js"></script>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2020/04/27/GCN-Learning-Note/">GCN Learning Note</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">四月 27 2020</p>
+  </section>
+  
+  <section class="article-entry">
+    <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>图卷积神经网络（简称 GCN）是基于图结构的数据，并通过直接在图上进行卷积神经网络操作的半监督学习的模型。通过将节点之间关联关系这种高纬度的图数据，降维成可以计算的矩阵形式，将数据汇集起来，并通过拉普拉斯正则化（Laplacian regulazation）来计算梯度和损失函数进行训练的模式。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>那么首先就要先了解数据是如何聚集的。在图的结构中，边是一个非常重要的数据，它表示着两个节点是否相关联，那么我们可以通过一个二维矩阵表示，每一排和每一列都代表着某个节点和对应节点是否相连，1代表连接，0代表不连接，那么最终形成的矩阵，我们把它叫做邻接矩阵 A 。注意，此时的图是无向图，切每条边的权制皆为1。有了邻接矩阵，我们还需要节点的属性。此时我们就可以根据邻接矩阵各个节点的顺序，以此将每个节点的属性排列进一个二维数组中。那么，汇集属性的操作就是：</p>
+<p>$H^{l+1} = f(H^l, A) = \sigma(AXW^l)$</p>
+<p>其中 $H^l$ 就是上一次汇集之后的各点的属性，当 $l=1$ 时，则为初始未汇集各点属性的值。这里面 $\sigma$ 为非线性激活函数（比如 ReLU），A 为邻接矩阵，X 为节点属性矩阵，W 为加权矩阵。通常，为了保留原来节点的属性，我们还会在 A 的基础上加一个单位矩阵 I。这一部分的操作是一个 spectral clustering 的过程，将节点的属性和邻接矩阵看作两个信号，将两个信号进行卷积操作获取这个节点的 eigenvalue 和 eigenvector，然后进行计算。</p>
+<p>以及，为了解决邻接矩阵与属性矩阵相乘的过程中会完全改变原本节点属性矩阵的 scale，我们还需要获取节点的度矩阵 $\tilde{D}_{ii}=\sum_j\tilde{A}_{ij}$。所以最终每一层网络传播的过程为：</p>
+<p>$H^{l+1} = \sigma(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^lW^l)$</p>
+<h2 id="梯度下降计算方法以及损失函数"><a href="#梯度下降计算方法以及损失函数" class="headerlink" title="梯度下降计算方法以及损失函数"></a>梯度下降计算方法以及损失函数</h2><p>接下来，模型构建完成了，该计算梯度来调整权重了，于是回到论文的最开始部分，作者提出了通过将拉普拉斯正则化的一种形式加入损失函数中，其中 $L_0$ 为监督学习下的损失值，$f(·)$ 为神经网络函数，$\lambda$ 是加权值，$X$ 是节点的属性矩阵，$∆ = D - A$ 表示图 $G = (V, E)$ 的未归一化图拉普拉斯， 节点 $v_i ∈ V$， 边 $(v_i, v_j) ∈ E$，邻接矩阵 $A ∈ R^{N * N}$，度矩阵 $D_{ii}=\sum_jA_{ij}$：</p>
+<p>$L = L_0 + \lambda L_{reg}$</p>
+<p>$L_{reg} = \sum_{i, j}A_{ij}||f(X_i)-f(X_j)||^2 = f(X)^T∆f(X)$</p>
+<p>在实际应用中，也可以直接调用 pytorch 中的 NLLLoss 函数。</p>
+<h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><p>GCN 模型属于半监督学习模型，也就是，训练集中，同时会包含训练集、测试集、求解集。那模型的使用方法就很清晰了，将整个图导入进内存之后，将训练集、测试集、求解集的属性矩阵一次拼接在一起，然后根据属性矩阵的顺序设置好邻接矩阵。通过mask的形式，区分output中的训练集、测试集和求解集的结果。因为参数是共享的，所以在训练的过程中，求解集的参数也一并得到。所以，最终求解的结果中，也就包含了我们需要求解的部分。</p>
+
+  </section>
+</article>
+
+</main>
+
+</body>
+</html>
